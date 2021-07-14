@@ -548,3 +548,135 @@
     animation: pulsate 1s infinite;
   }
 }
+
+////////////CARD
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 52rem;
+  width: 40%;
+  margin: 3rem;
+
+  &__side {
+    height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+
+    &--front {
+      background-color: var(--color-primary-dark);
+    }
+    &--back {
+      transform: rotateY(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-image: linear-gradient(
+        to right bottom,
+        var(--color-primary-light),
+        var(--color-primary-dark)
+      );
+    }
+  }
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  &__picture {
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    &--1 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#212121, 5),
+          rgba(#212121, 0.8)
+        ),
+        url(../img/natours.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#212121, 5),
+          rgba(#212121, 0.8)
+        ),
+        url(../img/piggame.jpg);
+    }
+    &--3 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#212121, 5),
+          rgba(#212121, 0.8)
+        ),
+        url(../img/forkify.jpg);
+    }
+    &--4 {
+      background-image: linear-gradient(
+          to right bottom,
+          rgba(#212121, 5),
+          rgba(#212121, 0.8)
+        ),
+        url(../img/nexter.jpg);
+    }
+  }
+
+  &__list {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+  }
+
+  &__item {
+    text-align: center;
+    display: block;
+    width: 60%;
+    padding: 1.2rem 2rem;
+    color: #212121;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(#333, 0.35);
+  }
+
+  &__btn {
+    padding: 2rem 6rem;
+    background-color: #212121;
+    text-transform: uppercase;
+    border-radius: 5rem;
+    font-size: 1.8rem;
+    color: #fff;
+    box-shadow: 0 1.5rem 2rem rgba(#000, 0.75);
+    transition: all 0.2s;
+    transform: translateY(-0.5rem);
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
